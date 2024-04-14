@@ -18,3 +18,24 @@ sui client new-address ed25519 learn_sui
 # Switch to the newly created 'learn_sui' address
 sui client switch --address learn_sui
 ```
+
+## Load gas to the new address
+```base
+sui client faucet --address <your_address> --url https://faucet.testnet.sui.io/gas
+```
+- `<your_address>` can be found via `sui client addresses`.
+- Use this command to verify if gas is added `sui client gas`. 
+
+# Set up a new project
+## Initialize a new project
+Follow the instruction here: [initializing the package](https://intro.sui-book.com/unit-one/lessons/3_custom_types_and_abilities.html#initializing-the-package).
+
+The command `sui move new <PACKAGE NAME>` will create a `Move.toml` configuration file. 
+
+**Note**: Ensure that the package name used in your code matches the `name` field specified under [package] in your `Move.toml` file.
+
+## Test and Build
+```bash
+sui client test
+sui client build
+```
