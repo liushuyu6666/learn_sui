@@ -39,3 +39,19 @@ The command `sui move new <PACKAGE NAME>` will create a `Move.toml` configuratio
 sui client test
 sui client build
 ```
+
+## Publish or deploy
+```bash
+sui client publish --gas-budget <gas_budget> <absolute file path to the package that needs to be published>
+```
+
+## Call a method
+1. First, export the `package ID`:
+    ```bash
+    export PACKAGE_ID=<package_ID>
+    ```
+   - To view the `package_ID`, navigate to the Object Changes section after publication. Look under Published Objects, where you will find the PackageID field listed.
+2. Run the follow command to call the method:
+    ```bash
+    sui client call --function <function_name> --module <module_name> --package <package_ID> --gas-budget 10000000
+    ```
